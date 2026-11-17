@@ -1,0 +1,599 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root {
+  --main: #F7F7F7;
+  --second: #A8B5A2;
+  --third: #1B3B36;
+  --fourth: #E2E8DF;
+  --fifth: #FFFFFF;
+  --sixth: #6B705C;
+  --seventh: #C57B57;
+  --eighth: #23272A;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  font-family: "Montserrat", serif;
+  color: var(--third);
+  background-color: var(--main);
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+.top {
+  background: linear-gradient(
+      rgba(27, 59, 54, 0.45),
+      rgba(27, 59, 54, 0.35)
+    ),
+    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 1rem 2rem;
+  font-family: "Montserrat", serif;
+  color: var(--fifth);
+  font-size: 1.05rem;
+}
+
+.header-icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1.25;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 36px;
+}
+
+nav a {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 400;
+  padding: 4px 0;
+  white-space: nowrap;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 3px;
+  background-color: var(--fifth);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 4rem 3rem;
+  min-height: 60vh;
+}
+
+
+.info {
+  font-family: "Montserrat", serif;
+  font-weight: 400;
+  font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+  line-height: 1.55;
+  color: var(--fifth);
+  width: min(100%, 560px);
+  margin-top: 1.25rem;
+}
+
+.location {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 1.5rem 2rem;
+  color: var(--fifth);
+}
+
+.loc-1,
+.loc-2,
+.loc-3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+  font-weight: 400;
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: var(--main);
+  min-height: 100vh;
+  padding: 3.5rem 2rem;
+}
+
+.c-head {
+  font-family: "Montserrat", serif;
+  font-weight: 600;
+  font-size: clamp(1.25rem, 2.3vw, 1.85rem);
+  text-align: center;
+  margin-bottom: 2rem;
+  max-width: 900px;
+}
+
+.region-map {
+  width: min(100%, 900px);
+  height: 0;
+  padding-bottom: min(67.8%, 610px);
+  position: relative;
+  margin: 0 auto;
+}
+
+.region-map svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.mini-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  width: min(100%, 1200px);
+  margin-top: 2rem;
+}
+
+.card1,
+.card2,
+.card3 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 18px;
+  height: clamp(220px, 28vw, 420px);
+  width: 100%;
+  border-radius: 16px;
+  color: var(--fifth);
+  font-family: "Montserrat", serif;
+  font-size: clamp(1rem, 1.5vw, 1.35rem);
+  font-weight: 600;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+.card1 {
+  background-color: var(--second);
+}
+
+.card2 {
+  background-color: var(--sixth);
+}
+
+.card3 {
+  background-color: var(--seventh);
+}
+
+.card1:hover,
+.card2:hover,
+.card3:hover {
+  transform: scale(1.03);
+}
+
+.end {
+  background-color: var(--third);
+  width: 100%;
+  min-height: 100vh;
+  color: var(--fifth);
+  font-family: "Montserrat", serif;
+}
+
+.end-one {
+  padding: 3.5rem 3rem 1rem;
+}
+
+.end-head {
+  font-size: clamp(2.2rem, 6vw, 6rem);
+  font-weight: 700;
+  line-height: 1.05;
+  max-width: 100%;
+}
+
+.end-info {
+  font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+  font-weight: 400;
+  line-height: 1.55;
+  width: min(100%, 560px);
+  margin-top: 1.25rem;
+}
+
+.end-cont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 2rem 3rem;
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  font-weight: 400;
+}
+
+.end-cont a {
+  color: var(--fifth);
+  text-decoration: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: min(100%, 720px);
+  background-color: var(--main);
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border-radius: 20px;
+}
+
+form input,
+form textarea {
+  border: 2px solid var(--third);
+  border-radius: 15px;
+  background-color: var(--fourth);
+  padding: 16px 18px;
+  margin-bottom: 18px;
+  width: 100%;
+  max-width: 100%;
+  font-family: "Montserrat", serif;
+  font-size: 16px;
+  color: var(--third);
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: var(--seventh);
+}
+
+form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+form button {
+  background-color: var(--third);
+  color: var(--fifth);
+  border: none;
+  padding: 14px 28px;
+  font-family: "Montserrat", serif;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  width: min(100%, 240px);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+form button:hover {
+  transform: scale(1.03);
+  opacity: 0.95;
+}
+
+.tg-form-card {
+  width: min(100% - 2rem, 480px);
+  margin: 16px auto;
+  padding: clamp(16px, 4vw, 24px);
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  font-family: "Montserrat", sans-serif;
+}
+
+/* ===========================
+   ПЛАНШЕТИ (до 1024px)
+   =========================== */
+@media (max-width: 1024px) {
+  .top {
+    padding: 16px;
+    min-height: auto;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    gap: 14px;
+  }
+
+  nav {
+    justify-content: center;
+    gap: 16px 24px;
+  }
+
+  .intro {
+    padding: 3rem 1.5rem;
+    min-height: auto;
+    align-items: center;
+    text-align: center;
+  }
+
+  .info {
+    width: min(100%, 620px);
+  }
+
+  .location {
+    padding: 1.5rem 1rem;
+    gap: 14px 24px;
+  }
+
+  .cards {
+    padding: 2.5rem 1.5rem;
+    min-height: auto;
+  }
+
+  .mini-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .end {
+    min-height: auto;
+  }
+
+  .end-one {
+    padding: 2.5rem 1.5rem 1rem;
+  }
+
+  .end-cont {
+    padding: 1.5rem;
+    gap: 16px;
+  }
+}
+
+/* ===========================
+   ТЕЛЕФОНИ (до 600px)
+   =========================== */
+@media (max-width: 600px) {
+  .top {
+    padding: 12px;
+    min-height: auto;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0.75rem 0.25rem;
+    gap: 12px;
+  }
+
+  .header-icon {
+    justify-content: center;
+  }
+
+  .icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 14px;
+    width: 100%;
+  }
+
+  nav a {
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  nav a::after {
+    bottom: -2px;
+    height: 2px;
+  }
+
+  .intro {
+    padding: 2rem 0.5rem;
+    min-height: auto;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+
+  .info {
+    width: 100%;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    margin-top: 1rem;
+  }
+
+  .location {
+    flex-direction: column;
+    gap: 12px;
+    padding: 1.25rem 0.5rem;
+  }
+
+  .loc-1,
+  .loc-2,
+  .loc-3 {
+    font-size: 0.92rem;
+  }
+
+  .cards {
+    padding: 2rem 0.75rem;
+    min-height: auto;
+  }
+
+  .c-head {
+    font-size: 1.2rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .region-map {
+    width: 100%;
+    padding-bottom: 67.8%;
+  }
+
+  .mini-cards {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 1.5rem;
+  }
+
+  .card1,
+  .card2,
+  .card3 {
+    height: 185px;
+    padding: 14px;
+    font-size: 1.05rem;
+  }
+
+  .card1:hover,
+  .card2:hover,
+  .card3:hover {
+    transform: scale(1.02);
+  }
+
+  .end {
+    min-height: auto;
+  }
+
+  .end-one {
+    padding: 2rem 1rem 0.75rem;
+  }
+
+  .end-head {
+    font-size: 2.05rem;
+    line-height: 1.1;
+  }
+
+  .end-info {
+    width: 100%;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    margin-top: 1rem;
+  }
+
+  .end-cont {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 1rem;
+    font-size: 0.92rem;
+  }
+
+
+  form input,
+  form textarea {
+    padding: 14px;
+    margin-bottom: 14px;
+    border-radius: 12px;
+    font-size: 15px;
+  }
+
+  form button {
+    width: 100%;
+    padding: 14px 20px;
+  }
+}
+.heading {
+  font-family: "Montserrat", serif;
+  font-weight: 700;
+  font-size: clamp(1.85rem, 5.2vw, 5.5rem);
+  line-height: 1.08;
+  color: var(--fifth);
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+@media (max-width: 1024px) {
+  .heading {
+    font-size: clamp(2rem, 5.5vw, 3.8rem);
+    line-height: 1.1;
+  }
+}
+
+@media (max-width: 600px) {
+  .heading {
+    font-size: clamp(1.75rem, 7.5vw, 2.4rem);
+    line-height: 1.12;
+  }
+}
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container form,
+form {
+  margin-left: auto;
+  margin-right: auto;
+}

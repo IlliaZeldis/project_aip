@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Житомир — Космічна Столиця та Зелена Перлина Полісся</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0B132B',
+                            navy: '#1C2541',
+                            blue: '#3A506B',
+                            gold: '#FFC857',
+                            goldHover: '#E0B042',
+                            accent: '#48CAE4',
+                            lightBg: '#F8FAFC',
+                            cardBg: '#FFFFFF',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav {
+            background: rgba(11, 19, 43, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(11,19,43,0.92) 0%, rgba(28,37,65,0.8) 60%, rgba(58,80,107,0.7) 100%);
+        }
+        .gold-glow:hover {
+            box-shadow: 0 10px 25px -5px rgba(255, 200, 87, 0.4);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-brand-lightBg text-slate-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <header class="fixed w-full top-0 z-50 glass-nav transition-all duration-300 border-b border-slate-700/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-gold to-yellow-300 flex items-center justify-center text-brand-dark shadow-md group-hover:scale-105 transition-transform">
+                        <i class="fa-solid me-0.5 fa-shuttle-space text-xl"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-bold text-white tracking-wider">ЖИТОМИР</span>
+                        <span class="text-xs text-brand-gold tracking-widest font-semibold uppercase -mt-1">Travel Guide</span>
+                    </div>
+                </a>
+
+                <nav class="hidden md:flex items-center space-x-8 font-medium text-slate-200">
+                    <a href="#about" class="hover:text-brand-gold transition-colors">Про місто</a>
+                    <a href="#places" class="hover:text-brand-gold transition-colors">Місця</a>
+                    <a href="#tips" class="hover:text-brand-gold transition-colors">Поради</a>
+                </nav>
+
+               <a href="../index.html" class="inline-flex items-center gap-2 bg-white hover:bg-slate-100 text-brand-dark px-4 py-2.5 rounded-xl font-semibold text-sm shadow-sm transition-all duration-200">
+                    <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024">
+                        <path d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z"></path>
+                    </svg>
+                    <span>На головну</span>
+                </a>
+
+                <button id="mobileMenuBtn" class="md:hidden text-white hover:text-brand-gold focus:outline-none p-2">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="hidden md:hidden bg-brand-navy border-b border-slate-700/80 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="mobile-link block py-2 text-white hover:text-brand-gold border-b border-slate-700/40">Про місто</a>
+            <a href="#places" class="mobile-link block py-2 text-white hover:text-brand-gold border-b border-slate-700/40">Визначні місця</a>
+            <a href="#tips" class="mobile-link block py-2 text-white hover:text-brand-gold">Поради туристам</a>
+            <a href="#places" class="mobile-link mt-4 w-full bg-brand-gold text-brand-dark text-center py-3 rounded-xl font-bold block">Розпочати подорож</a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-brand-dark">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1920&auto=format&fit=crop" 
+                     alt="Житомир річка Тетеку" 
+                     class="w-full h-full object-cover object-center scale-105 animate-pulse opacity-40 duration-[10000ms]"
+                     onerror="this.src='https://placehold.co/1920x1080/1C2541/FFFFFF?text=Житомир'">
+                <div class="absolute inset-0 hero-gradient"></div>
+            </div>
+
+            <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white py-16">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-brand-gold mb-6 text-sm font-semibold tracking-wide backdrop-blur-md">
+                    <i class="fa-solid fa-location-dot"></i> Космічна та зелена столиця Українського Полісся
+                </div>
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+                    Житомир — Місто <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-amber-300">Космосу та Каньйонів</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed font-light">
+                    Унікальний Музей космонавтики, найвищий підвісний міст, геологічна пам'ятка «Голова Чацького», Шодуарівський парк та пішохідна вулиця Михайлівська.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#places" class="w-full sm:w-auto bg-brand-gold hover:bg-brand-goldHover text-brand-dark px-8 py-4 rounded-xl font-bold text-lg shadow-lg gold-glow transition-all duration-300 flex items-center justify-center gap-3">
+                        <span>Переглянути місця</span>
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </a>
+                    <a href="#about" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border border-white/20 backdrop-blur-md px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 flex items-center justify-center gap-2">
+                        <i class="fa-circle-info"></i>
+                        <span>Дізнатися більше</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-white/60 hover:text-white transition-colors cursor-pointer animate-bounce hidden sm:block">
+                <a href="#about" aria-label="Скролл вниз">
+                    <i class="fa-solid fa-chevron-down text-2xl"></i>
+                </a>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-brand-blue mb-2">Історія та факти</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-brand-dark">Древнє місто слов'ян та космічних досягнень</p>
+                    <div class="w-20 h-1.5 bg-brand-gold mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="p-8 rounded-2xl bg-brand-lightBg border border-slate-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                        <div class="w-14 h-14 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="text-3xl font-extrabold text-brand-dark mb-2">884 рік</h3>
+                        <p class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-2">Заснування</p>
+                        <p class="text-slate-600 text-sm leading-relaxed">Одне з найдавніших міст України, засноване дружинником київських князів Аскольда та Діра — Житомиром.</p>
+                    </div>
+
+                    <div class="p-8 rounded-2xl bg-brand-lightBg border border-slate-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                        <div class="w-14 h-14 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-shuttle-space"></i>
+                        </div>
+                        <h3 class="text-3xl font-extrabold text-brand-dark mb-2">С. Корольов</h3>
+                        <p class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-2">Батько космонавтики</p>
+                        <p class="text-slate-600 text-sm leading-relaxed">Батьківщина головного конструктора космічних кораблів Сергія Корольова з єдиним музеєм космонавтики.</p>
+                    </div>
+
+                    <div class="p-8 rounded-2xl bg-brand-lightBg border border-slate-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                        <div class="w-14 h-14 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-mountain"></i>
+                        </div>
+                        <h3 class="text-3xl font-extrabold text-brand-dark mb-2">Граніт</h3>
+                        <p class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-2">Скелястий каньйон</p>
+                        <p class="text-slate-600 text-sm leading-relaxed">Місто розташоване на величних гранітних скелях прадавнього Українського кристалічного щита.</p>
+                    </div>
+
+                    <div class="p-8 rounded-2xl bg-brand-lightBg border border-slate-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                        <div class="w-14 h-14 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-bridge"></i>
+                        </div>
+                        <h3 class="text-3xl font-extrabold text-brand-dark mb-2">43 метри</h3>
+                        <p class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-2">Підвісний міст</p>
+                        <p class="text-slate-600 text-sm leading-relaxed">В вражаючий пішохідний підвісний міст над річкою Тетерук, із якого відкривається грандіозна панорама.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="places" class="py-20 bg-brand-lightBg border-t border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-brand-blue mb-2">Локації для відвідування</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-brand-dark">Популярні місця Житомира</p>
+                    <p class="text-slate-600 mt-3">Обирайте категорії або шукайте за назвою, щоб дізнатися більше про кожну пам'ятку</p>
+                </div>
+
+                <div class="mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 no-scrollbar">
+                        <button class="filter-btn active bg-brand-navy text-white px-5 py-2.5 rounded-xl font-medium text-sm whitespace-nowrap transition-all shadow-sm" data-category="all">
+                            Усі місця
+                        </button>
+                        <button class="filter-btn bg-white hover:bg-slate-100 text-slate-700 px-5 py-2.5 rounded-xl font-medium text-sm whitespace-nowrap transition-all shadow-sm" data-category="space">
+                            <i class="fa-solid fa-shuttle-space mr-1.5 text-blue-500"></i> Космос & Музеї
+                        </button>
+                        <button class="filter-btn bg-white hover:bg-slate-100 text-slate-700 px-5 py-2.5 rounded-xl font-medium text-sm whitespace-nowrap transition-all shadow-sm" data-category="nature">
+                            <i class="fa-solid fa-mountain mr-1.5 text-emerald-500"></i> Скелі & Парки
+                        </button>
+                        <button class="filter-btn bg-white hover:bg-slate-100 text-slate-700 px-5 py-2.5 rounded-xl font-medium text-sm whitespace-nowrap transition-all shadow-sm" data-category="architecture">
+                            <i class="fa-solid fa-landmark mr-1.5 text-amber-500"></i> Архітектура & Собори
+                        </button>
+                        <button class="filter-btn bg-white hover:bg-slate-100 text-slate-700 px-5 py-2.5 rounded-xl font-medium text-sm whitespace-nowrap transition-all shadow-sm" data-category="streets">
+                            <i class="fa-solid fa-road mr-1.5 text-purple-500"></i> Вулиці & Мости
+                        </button>
+                    </div>
+
+                    <div class="relative w-full md:w-80">
+                        <input type="text" id="searchInput" placeholder="Пошук локації..." 
+                               class="w-full pl-11 pr-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-transparent bg-white text-slate-800 text-sm shadow-sm transition-all">
+                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                    </div>
+                </div>
+
+                <div id="placesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                </div>
+
+                <div id="emptyState" class="hidden text-center py-16">
+                    <div class="w-16 h-16 bg-slate-200 text-slate-400 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-700 mb-1">Нічого не знайдено</h3>
+                    <p class="text-slate-500 text-sm">Спробуйте змінити пошуковий запит або фільтр</p>
+                </div>
+
+            </div>
+        </section>
+
+      
+
+        <section id="tips" class="py-20 bg-brand-navy text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-brand-gold mb-2">Важливо знати</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold">Корисні поради для мандрівника</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-brand-blue/30 border border-slate-700/60 p-8 rounded-2xl backdrop-blur-sm">
+                        <div class="w-12 h-12 rounded-xl bg-brand-gold/20 text-brand-gold flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-shuttle-space"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Космічні враження</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Обов'язково замовте екскурсію у Музеї космонавтики, щоб почути записи космічного звуку та побачити зразки посадкових капсул.
+                        </p>
+                    </div>
+
+                    <div class="bg-brand-blue/30 border border-slate-700/60 p-8 rounded-2xl backdrop-blur-sm">
+                        <div class="w-12 h-12 rounded-xl bg-brand-gold/20 text-brand-gold flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-person-walking"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Зручне взуття</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Для огляду каньйонів Тетерова, паркових сходів та пагорбів Замкової гори стане у пригоді зручне спортивне чи туристичне взуття.
+                        </p>
+                    </div>
+
+                    <div class="bg-brand-blue/30 border border-slate-700/60 p-8 rounded-2xl backdrop-blur-sm">
+                        <div class="w-12 h-12 rounded-xl bg-brand-gold/20 text-brand-gold flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-shield-cat"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Безпека та комфорт</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Житомир — дуже затишне та зелене місто. Під час оголошення тривог користуйтеся укриттями, які розташовані у центрі.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="placeModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-md transition-opacity duration-300">
+        <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative animate-in fade-in zoom-in duration-200">
+            <button id="closeModalBtn" class="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <div class="relative h-64 sm:h-80 w-full overflow-hidden">
+                <img id="modalImg" src="" alt="" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                <div class="absolute bottom-6 left-6 right-6 text-white">
+                    <span id="modalCategory" class="px-3 py-1 rounded-md text-xs font-bold tracking-wider uppercase bg-brand-gold text-brand-dark mb-2 inline-block"></span>
+                    <h3 id="modalTitle" class="text-2xl sm:text-3xl font-extrabold leading-tight"></h3>
+                </div>
+            </div>
+
+            <div class="p-6 sm:p-8 space-y-6">
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Опис локації</h4>
+                    <p id="modalDescription" class="text-slate-700 leading-relaxed text-base"></p>
+                </div>
+
+                <div class="bg-brand-lightBg p-4 rounded-xl border border-slate-200">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-brand-blue mb-2">Цікавий факт</h4>
+                    <p id="modalFact" class="text-slate-800 text-sm font-medium italic"></p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-slate-100">
+                    <div>
+                        <span class="text-xs text-slate-400 block font-semibold uppercase">Локація / Адреса</span>
+                        <span id="modalLocation" class="text-sm font-semibold text-slate-800 flex items-center gap-1.5 mt-1">
+                            <i class="fa-solid fa-location-dot text-brand-gold"></i>
+                            <span></span>
+                        </span>
+                    </div>
+                    <div>
+                        <span class="text-xs text-slate-400 block font-semibold uppercase">Рекомендований час</span>
+                        <span id="modalTime" class="text-sm font-semibold text-slate-800 flex items-center gap-1.5 mt-1">
+                            <i class="fa-solid fa-clock text-brand-gold"></i>
+                            <span></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-brand-dark text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 rounded-lg bg-brand-gold flex items-center justify-center text-brand-dark">
+                            <i class="fa-solid fa-shuttle-space"></i>
+                        </div>
+                        <span class="text-lg font-bold text-white tracking-wider">ЖИТОМИР TRAVEL</span>
+                    </div>
+                    <p class="text-sm text-slate-400 max-w-sm leading-relaxed mb-4">
+                        Інформаційний путівник містом Житомир. Відкривайте Музей космонавтики, гранітні каньйони Тетерова, Шодуарівський парк та романтичний підвісний міст.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Навігація</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#about" class="hover:text-brand-gold transition-colors">Про місто</a></li>
+                        <li><a href="#places" class="hover:text-brand-gold transition-colors">Пам'ятки</a></li>
+                        <li><a href="#tips" class="hover:text-brand-gold transition-colors">Поради</a></li>
+                    </ul>
+                </div>
+
+               
+            </div>
+
+            <div class="pt-8 border-t border-slate-800 text-xs text-center text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p>&copy; 2026 Житомир Travel. Всі права захищено. Слава Україні!</p>
+                <p>Розроблено для туристів та поціновувачів українських міст.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const placesData = [
+            {
+                id: 'space-museum',
+                title: 'Національний музей космонавтики ім. С. П. Корольова',
+                category: 'space',
+                categoryLabel: 'Космос & Музеї',
+                shortDesc: 'Унікальний космічний музей із справжніми капсулами, скафандрами та зразком місячного ґрунту.',
+                fullDesc: 'Розташований у рідному місті академіка Сергія Корольова. Музейний комплекс включає меморіальний будинок-музей конструктора та виставковий павільйон «Космос» з космічними апаратами, супутниками, скафандрами та світломузичним оформленням.',
+                fact: 'Музей володіє справжньою капсулою космічного корабля «Союз» та контейнером із місячним ґрунтом, подарованим NASA.',
+                location: 'вул. Дмитрівська, 2',
+                time: '1.5 - 2 години',
+                img: 'https://i0.wp.com/www.kovrkv.org/wp-content/uploads/2024/05/muzej-kosmonavtyky.jpg?fit=1200%2C800&ssl=1'
+            },
+            {
+                id: 'chatsky-head',
+                title: 'Скеля «Голова Чацького»',
+                category: 'nature',
+                categoryLabel: 'Скелі & Парки',
+                shortDesc: 'Унікальна геологічна пам\'ятка природи над річкою Тетерук у формі людського профілю.',
+                fullDesc: 'Грандіозна гранітна скеля висотою 30 метрів, утворена внаслідок природного вивітрювання сірого граніту. За формоюона нагадує профіль людини і названа на честь просвітителя Тадеуша Чацького.',
+                fact: 'Скеля виникла тисячі років тому і визнана геологічною памяткою державного значення.',
+                location: 'Лівий берег річки Тетерук (район греблі)',
+                time: '45 хвилин',
+                img: 'https://rest.guru.ua/img/place_photo/1002/2181.jpg'
+            },
+            {
+                id: 'suspension-bridge',
+                title: 'Підвісний міст через Тетерук',
+                category: 'streets',
+                categoryLabel: 'Вулиці & Мости',
+                shortDesc: 'Один із найвищих пішохідних підвісних мостів в Україні висотою 43 метри.',
+                fullDesc: 'Унікальна мостова конструкція у Шодуарівському парку, утримувана масивними вантами. З мосту відкривається запаморочливий вид на каньйон річки Тетерук, скелі та густий лісопарк.',
+                fact: 'Висота мосту становить 43 метри, що робить його популярним місцем для любителів роуп-джампінгу.',
+                location: 'Шодуарівський парк',
+                time: '45 хвилин',
+                img: 'https://upload.wikimedia.org/wikipedia/commons/8/86/%D0%9F%D1%96%D0%B4%D0%B2%D1%96%D1%81%D0%BD%D0%B8%D0%B9_%D0%BF%D1%96%D1%88%D0%BE%D1%85%D1%96%D0%B4%D0%BD%D0%B8%D0%B9_%D0%BC%D1%96%D1%81%D1%82_%D1%87%D0%B5%D1%80%D0%B5%D0%B7_%D1%80._%D0%A2%D0%B5%D1%82%D0%B5%D1%80%D1%96%D0%B2_%D0%94_02.jpg?utm_source=uk.wikipedia.org&utm_campaign=index&utm_content=original'
+            },
+            {
+                id: 'shoduar-park',
+                title: 'Шодуарівський парк (Парк ім. Ю. Гагаріна)',
+                category: 'nature',
+                categoryLabel: 'Скелі & Парки',
+                shortDesc: 'Старовинний парк на крутих скелястих схилах із білосніжною альтанкою та каскадом сходів.',
+                fullDesc: 'Заснований наприкінці XIX століття бароном Іваном де Шодуаром. Парк прикрашений античними статуями, величними гранітними сходами, білою альтанкою над річкою та екзотичними деревами.',
+                fact: 'У парку налічується понад 80 видів дерев та чагарників зі всього світу, висаджених родиною Шодуарів.',
+                location: 'Старе місто / берег Тетерова',
+                time: '1.5 - 2 години',
+                img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnxLf3bMgItCjEn8uKJfnuYTIn5CuCjdr0sOfyCeCXCXjCBPO-RmRsIeEA&s=10'
+            },
+            {
+                id: 'flat-house',
+                title: '«Плоский будинок» (Будинок-серце)',
+                category: 'architecture',
+                categoryLabel: 'Архітектура & Собори',
+                shortDesc: 'Незвичайна архітектурна пам\'ятка XIX століття з оптичною ілюзією плоского фасаду.',
+                fullDesc: 'Зведений у середині XIX століття на розі вулиць. Завдяки гострому куту будівництва під певним ракурсом здається, що будинок має лише одну фасадну стіну без бічних частин.',
+                fact: 'Раніше в цій будівлі розміщувався міський бордель та притулок для міщан, а нині це житловий будинок з чудною геометрією.',
+                location: 'майдан Перемоги, 8',
+                time: '30 хвилин',
+                img: 'https://zhytomyr-day.com/wp-content/uploads/2024/05/istoria-ploskigi-budinku-1.jpg'
+            }
+        ];
+
+        const placesGrid = document.getElementById('placesGrid');
+        const searchInput = document.getElementById('searchInput');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const emptyState = document.getElementById('emptyState');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        const placeModal = document.getElementById('placeModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const modalImg = document.getElementById('modalImg');
+        const modalCategory = document.getElementById('modalCategory');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalFact = document.getElementById('modalFact');
+        const modalLocation = document.getElementById('modalLocation').querySelector('span:last-child');
+        const modalTime = document.getElementById('modalTime').querySelector('span:last-child');
+
+        let currentCategory = 'all';
+        let searchQuery = '';
+
+        function renderPlaces() {
+            placesGrid.innerHTML = '';
+
+            const filtered = placesData.filter(place => {
+                const matchesCategory = currentCategory === 'all' || place.category === currentCategory;
+                const matchesSearch = place.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                      place.shortDesc.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchesCategory && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                emptyState.classList.remove('hidden');
+            } else {
+                emptyState.classList.add('hidden');
+                filtered.forEach(place => {
+                    const card = document.createElement('div');
+                    card.className = 'glass-card rounded-2xl overflow-hidden border border-slate-200/80 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group cursor-pointer';
+                    card.onclick = () => openModal(place);
+
+                    card.innerHTML = `
+                        <div>
+                            <div class="relative h-48 overflow-hidden">
+                                <img src="${place.img}" alt="${place.title}" 
+                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                     onerror="this.src='https://placehold.co/800x600/1C2541/FFFFFF?text=${encodeURIComponent(place.title)}'">
+                                <div class="absolute top-3 left-3 bg-brand-dark/80 backdrop-blur-md text-brand-gold text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider">
+                                    ${place.categoryLabel}
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-brand-dark mb-2 group-hover:text-brand-blue transition-colors">${place.title}</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed mb-4 line-clamp-3">${place.shortDesc}</p>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6 pt-0 mt-auto flex items-center justify-between text-xs text-slate-500 border-t border-slate-100 pt-4">
+                            <span class="flex items-center gap-1 font-medium">
+                                <i class="fa-solid fa-clock text-brand-gold"></i> ${place.time}
+                            </span>
+                            <span class="text-brand-blue font-bold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                                Детальніше <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                            </span>
+                        </div>
+                    `;
+                    placesGrid.appendChild(card);
+                });
+            }
+        }
+
+        function openModal(place) {
+            modalImg.src = place.img;
+            modalImg.onerror = () => { modalImg.src = `https://placehold.co/800x600/1C2541/FFFFFF?text=${encodeURIComponent(place.title)}`; };
+            modalCategory.textContent = place.categoryLabel;
+            modalTitle.textContent = place.title;
+            modalDescription.textContent = place.fullDesc;
+            modalFact.textContent = place.fact;
+            modalLocation.textContent = place.location;
+            modalTime.textContent = place.time;
+
+            placeModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            placeModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        closeModalBtn.addEventListener('click', closeModal);
+        placeModal.addEventListener('click', (e) => {
+            if (e.target === placeModal) closeModal();
+        });
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-brand-navy', 'text-white');
+                    b.classList.add('bg-white', 'text-slate-700');
+                });
+                btn.classList.add('active', 'bg-brand-navy', 'text-white');
+                btn.classList.remove('bg-white', 'text-slate-700');
+                
+                currentCategory = btn.getAttribute('data-category');
+                renderPlaces();
+            });
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value.trim();
+            renderPlaces();
+        });
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !placeModal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+
+        renderPlaces();
+    </script>
+</body>
+</html>
